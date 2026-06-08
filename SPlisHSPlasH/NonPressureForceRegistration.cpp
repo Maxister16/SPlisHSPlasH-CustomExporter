@@ -17,7 +17,9 @@
 #include "Elasticity/Elasticity_Becker2009.h"
 #include "Elasticity/Elasticity_Peer2018.h"
 #include "Elasticity/Elasticity_Kugelstadt2021.h"
+#ifdef USE_THIRD_PARTY_METHODS
 #include "Elasticity/Elasticity_Kee2023.h"
+#endif
 
 #include "SurfaceTension/SurfaceTension_Becker2007.h"
 #include "SurfaceTension/SurfaceTension_Akinci2013.h"
@@ -40,7 +42,9 @@ void Simulation::registerNonpressureForces()
 	addElasticityMethod(Elasticity_Becker2009::METHOD_NAME, Elasticity_Becker2009::creator);
 	addElasticityMethod(Elasticity_Peer2018::METHOD_NAME, Elasticity_Peer2018::creator);
 	addElasticityMethod(Elasticity_Kugelstadt2021::METHOD_NAME, Elasticity_Kugelstadt2021::creator);
+#ifdef USE_THIRD_PARTY_METHODS
 	addElasticityMethod(Elasticity_Kee2023::METHOD_NAME, Elasticity_Kee2023::creator);
+#endif
 
 	addSurfaceTensionMethod("None", [](FluidModel*) -> NonPressureForceBase* { return nullptr; });
 	addSurfaceTensionMethod(SurfaceTension_Becker2007::METHOD_NAME, SurfaceTension_Becker2007::creator);

@@ -1,3 +1,6 @@
+2.17.0
+	- added implementation of turbulence method: Kee et al., "Turbulent Details Simulation for SPH Fluids via Vorticity Refinement", Computer Graphics Forum, 2023 (thanks to Min Hyung Kee)	
+
 2.16.1
 	- bugfix in Projective Fluids solver (thanks to Lukas Hof)
 

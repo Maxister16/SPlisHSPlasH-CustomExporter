@@ -128,14 +128,12 @@ set(ELASTICITY_HEADER_FILES
 	Elasticity/Elasticity_Becker2009.h	
 	Elasticity/Elasticity_Peer2018.h
 	Elasticity/Elasticity_Kugelstadt2021.h
-	Elasticity/Elasticity_Kee2023.h
 	)
 	
 set(ELASTICITY_SOURCE_FILES
 	Elasticity/Elasticity_Becker2009.cpp
 	Elasticity/Elasticity_Peer2018.cpp
 	Elasticity/Elasticity_Kugelstadt2021.cpp
-	Elasticity/Elasticity_Kee2023.cpp
 	)
 	
 set(UTILS_HEADER_FILES
@@ -185,6 +183,14 @@ if (USE_THIRD_PARTY_METHODS)
 	
 	list(APPEND SURFACETENSION_SOURCE_FILES
 		SurfaceTension/SurfaceTension_ZorillaRitter2020.cpp
+	)
+
+	list(APPEND ELASTICITY_HEADER_FILES 
+		Elasticity/Elasticity_Kee2023.h
+	)
+
+	list(APPEND ELASTICITY_SOURCE_FILES 
+		Elasticity/Elasticity_Kee2023.cpp
 	)
 endif()
 	

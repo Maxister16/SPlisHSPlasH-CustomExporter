@@ -16,8 +16,10 @@ namespace SPH
 	* by Kee et al. [K23].
 	*
 	* References:
-	* - [K23] Kee et al..
-	* Kee 2023.
+	* - [K23] Min Hyung Kee, Kiwon Um, HyunMo Kang, JungHyun Han.
+	* An Optimization-based SPH Solver for Simulation of Hyperelastic Solids.
+	* Computer Graphics Forum, 42: 225-233, 2023. 
+	* https://doi.org/10.1111/cgf.14756
 	*
 	*/
 	class Elasticity_Kee2023 : public NonPressureForceBase
