@@ -11,12 +11,12 @@ namespace SPH
 	*/
 	class ParticleExporter_TXT : public ExporterBase
 	{
-	protected: 
+	protected:
 		std::string m_exportPath;
-		std::string m_particleFile;
-		std::future<void> m_handle;
+		std::ofstream* m_outfile;
 
-		void writeParticlesTXT(const std::string& fileName, FluidModel* model, const unsigned int objId=0xffffffff);
+		void createParticleFile(const std::string& fileName, FluidModel* model);
+		void writeParticles(const std::string& fileName, FluidModel* model, const unsigned int objId = 0xffffffff);
 
 	public:
 		ParticleExporter_TXT(SimulatorBase *base);
