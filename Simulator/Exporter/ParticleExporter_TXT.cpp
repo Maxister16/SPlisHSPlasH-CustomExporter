@@ -56,6 +56,12 @@ void ParticleExporter_TXT::createParticleFile(const std::string& fileName, Fluid
 		LOG_WARN << "Cannot open a file to save txt particles.";
 		return;
 	}
+
+	Simulation* sim = Simulation::getCurrent();
+	const unsigned int nBoundaryModels = sim->numberOfBoundaryModels();
+
+	(*m_outfile) << sim->numberOfBoundaryModels() << "\n";
+
 }
 
 void ParticleExporter_TXT::writeParticles(const std::string& fileName, FluidModel* model, const unsigned int objId)
