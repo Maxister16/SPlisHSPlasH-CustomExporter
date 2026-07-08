@@ -76,6 +76,7 @@ void RigidBodyExporter_OBJ::writeRigidBodies(const unsigned int frame)
 			outfile << "g default\n";
 
 			const std::vector<Vector3r>& vertices = bm->getRigidBodyObject()->getVertices();
+			const std::vector<Vector3r>& vertexNormals = bm->getRigidBodyObject()->getVertexNormals();
 			const std::vector<unsigned int>& faces = bm->getRigidBodyObject()->getFaces();
 			int n_vertices = (int)vertices.size();
 			int n_triangles = (int)faces.size() / 3;
@@ -88,12 +89,23 @@ void RigidBodyExporter_OBJ::writeRigidBodies(const unsigned int frame)
 					outfile << "v " << x[0] << " " << x[1] << " " << x[2] << "\n";
 				}
 			}
+			// face normals
+			{
+				for (int j = 0u; j < n_vertices; j++)
+				{
+					Vector3r x = vertexNormals[j];
+					outfile << "vn " << x[0] << " " << x[1] << " " << x[2] << "\n";
+				}
+			}
 
 			// faces
 			{
 				for (int j = 0; j < n_triangles; j++)
 				{
-					outfile << "f " << faces[3 * j + 0] + 1 << " " << faces[3 * j + 1] + 1 << " " << faces[3 * j + 2] + 1 << "\n";
+					outfile << "f "
+						<< faces[3 * j + 0] + 1 << "//" << faces[3 * j + 0] + 1 << " "
+						<< faces[3 * j + 1] + 1 << "//" << faces[3 * j + 1] + 1 << " "
+						<< faces[3 * j + 2] + 1 << "//" << faces[3 * j + 2] + 1 << "\n";
 				}
 			}
 			outfile.close();
