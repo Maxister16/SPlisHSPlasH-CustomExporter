@@ -12,6 +12,7 @@ namespace SPH
 	class ParticleExporter_TXT : public ExporterBase
 	{
 	protected:
+		const int CURRENT_VERSION = 3;
 		std::string m_exportPath;
 		std::ofstream* m_outfile;
 

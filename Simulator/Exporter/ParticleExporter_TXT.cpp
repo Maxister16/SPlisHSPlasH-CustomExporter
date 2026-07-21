@@ -60,6 +60,10 @@ void ParticleExporter_TXT::createParticleFile(const std::string& fileName, Fluid
 	Simulation* sim = Simulation::getCurrent();
 	const unsigned int nBoundaryModels = sim->numberOfBoundaryModels();
 
+	//DO NOT MODIFY THIS LINE. It is needed to track the files' version
+	(*m_outfile) << "EXPORTER VERSION" << "\n"
+				 << CURRENT_VERSION << "\n";
+	
 	(*m_outfile) << sim->numberOfBoundaryModels() << "\n";
 
 }
