@@ -41,6 +41,7 @@ namespace SPH
 		virtual ~TimeStepWCSPH(void);
 
 		virtual std::string getMethodName() { return METHOD_NAME; }
+		const SimulationDataWCSPH& getSimulationData() { return m_simulationData; }
 		virtual int getNumIterations() { return 0; }
 		virtual void step();
 		virtual void reset();

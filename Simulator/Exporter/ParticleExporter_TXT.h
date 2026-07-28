@@ -2,8 +2,8 @@
 #define __ParticleExporter_TXT_h__
 
 #include "ExporterBase.h"
-#include "SPlisHSPlasH/FluidModel.h"
 #include <future>
+#include <SPlisHSPlasH/Simulation.h>
 
 namespace SPH
 {
@@ -12,7 +12,7 @@ namespace SPH
 	class ParticleExporter_TXT : public ExporterBase
 	{
 	protected:
-		const int CURRENT_VERSION = 3;
+		const int CURRENT_VERSION = 4;
 		std::string m_exportPath;
 		std::ofstream* m_outfile;
 
