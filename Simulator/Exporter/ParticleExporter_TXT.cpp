@@ -148,7 +148,7 @@ void ParticleExporter_TXT::writeParticles(const std::string& fileName, FluidMode
 		case SimulationMethods::ICSPH: 
 		{
 			TimeStepICSPH* preciseTimeStep = static_cast<TimeStepICSPH*>(timeStep);
-			if (preciseTimeStep != nullptr)
+			if (preciseTimeStep == nullptr)
 			{
 				setActive(false);
 				std::cout << "[FAILED EXPORT TXT] Could not export pressure, errror when exporting ICSPH simulation data\n";
